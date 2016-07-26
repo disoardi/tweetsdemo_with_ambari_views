@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  <property>
+    <name>tweet_installdir</name>
+    <value>/opt/demotweet</value>
+    <description>Installation directory</description>
+  </property>
+
+  <property>
+    <name>tweet_piddir</name>
+    <value>/var/run/tweetdemo</value>
+    <description>Process ID Directory</description>
+  </property>
+
+  <property>
+    <name>content</name>
+    <description>This is the jinja template for user-env.sh file</description>
+    <value>
+# Nifi configuration
+host="{{nifi_master_host}}:{{nifi_port}}"
+
+# Twitter dashboard configuration
+tweet_piddir="{{tweet_piddir}}"
+tweet_pidfile="{{tweet_pidfile}}"
+    </value>
+  </property>
+
+</configuration>
+
