@@ -73,15 +73,25 @@ class Master(Script):
     Execute('echo Execute sed')
     Execute('sed -i "s/iFrame View/Banana dashboard/g" /opt/iframe-view/src/main/resources/view.xml')
     Execute('sed -i "s/IFRAME_VIEW/BANANA_DASHBOARD/g" /opt/iframe-view/src/main/resources/view.xml')
-    Execute('sed -i "s/6080/8983\/solr\/banana\/index.html\#\/dashboard/g" /opt/iframe-view/src/main/resources/index.html')
+    Execute('sed -i "s#6080/8983/solr/banana/index.html\#/dashboard#g" /opt/iframe-view/src/main/resources/index.html')
     Execute('sed -i "s/iframe-view/banana_dashboard-view/g" /opt/iframe-view/pom.xml')
     Execute('sed -i "s/Ambari iFrame View/Banana dashboard view/g" /opt/iframe-view/pom.xml')
     Execute('echo Compile mvn')
     Execute('mvn -f /opt/iframe-view/pom.xml clean package')
-    Execute('echo Cpoy JAR')
-    Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views')
+    Execute('echo Copy JAR')
+    Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views/banana_view.jar')
 
 
+    Execute('sed -i "s/iFrame View/Kiwi dashboard/g" /opt/iframe-view/src/main/resources/view.xml')
+    Execute('sed -i "s/IFRAME_VIEW/KIWI_DASHBOARD/g" /opt/iframe-view/src/main/resources/view.xml')
+    Execute('sed -i "s#6080/8983/solr/kiwi/index.html\#/dashboard#g" /opt/iframe-view/src/main/resources/index.html')
+    Execute('sed -i "s/iframe-view/kiwi_dashboard-view/g" /opt/iframe-view/pom.xml')
+    Execute('sed -i "s/Ambari iFrame View/Kiwi dashboard view/g" /opt/iframe-view/pom.xml')
+    Execute('rm -rf /opt/iframe-view/target')
+    Execute('echo Compile mvn')
+    Execute('mvn -f /opt/iframe-view/pom.xml clean package')
+    Execute('echo Copy JAR')
+    Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views/kiwi_view.jar')
     self.configure(env)
    
   def configure(self, env):
