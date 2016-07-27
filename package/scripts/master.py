@@ -82,11 +82,11 @@ class Master(Script):
     Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views/banana_view.jar')
 
 
-    Execute('sed -i "s/iFrame View/Kiwi dashboard/g" /opt/iframe-view/src/main/resources/view.xml')
-    Execute('sed -i "s/IFRAME_VIEW/KIWI_DASHBOARD/g" /opt/iframe-view/src/main/resources/view.xml')
+    Execute('sed -i "s/Banana dashboard/Kiwi dashboard/g" /opt/iframe-view/src/main/resources/view.xml')
+    Execute('sed -i "s/BANANA_DASHBOARD/KIWI_DASHBOARD/g" /opt/iframe-view/src/main/resources/view.xml')
     Execute('sed -i "s/banana/kiwi/g" /opt/iframe-view/src/main/resources/index.html')
-    Execute('sed -i "s/iframe-view/kiwi_dashboard-view/g" /opt/iframe-view/pom.xml')
-    Execute('sed -i "s/Ambari iFrame View/Kiwi dashboard view/g" /opt/iframe-view/pom.xml')
+    Execute('sed -i "s/banana_dashboard-view/kiwi_dashboard-view/g" /opt/iframe-view/pom.xml')
+    Execute('sed -i "s/Banana dashboard view/Kiwi dashboard view/g" /opt/iframe-view/pom.xml')
     Execute('rm -rf /opt/iframe-view/target')
     Execute('echo Compile mvn')
     Execute('mvn -f /opt/iframe-view/pom.xml clean package')
