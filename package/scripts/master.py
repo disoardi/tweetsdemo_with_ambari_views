@@ -79,7 +79,7 @@ class Master(Script):
     Execute('echo Compile mvn')
     Execute('mvn -f /opt/iframe-view/pom.xml clean package')
     Execute('echo Copy JAR')
-    Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views/banana_view.jar')
+    Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views/')
 
 
     Execute('sed -i "s/Banana dashboard/Kiwi dashboard/g" /opt/iframe-view/src/main/resources/view.xml')
@@ -91,7 +91,7 @@ class Master(Script):
     Execute('echo Compile mvn')
     Execute('mvn -f /opt/iframe-view/pom.xml clean package')
     Execute('echo Copy JAR')
-    Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views/kiwi_view.jar')
+    Execute('cp /opt/iframe-view/target/*jar /var/lib/ambari-server/resources/views/')
     self.configure(env)
    
   def configure(self, env):
