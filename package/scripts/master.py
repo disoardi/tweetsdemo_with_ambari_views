@@ -63,7 +63,9 @@ class Master(Script):
     Execute('cp -pR /opt/lucidworks-hdpsearch/solr/server/solr-webapp/webapp/banana /opt/lucidworks-hdpsearch/solr/server/solr-webapp/webapp/kiwi')
     Execute('cp ' + params.tweet_installdir + '/banana_default.json  /opt/lucidworks-hdpsearch/solr/server/solr-webapp/webapp/banana/app/dashboards/default.json')
     Execute('cp ' + params.tweet_installdir + '/kiwi_default.json /opt/lucidworks-hdpsearch/solr/server/solr-webapp/webapp/kiwi/app/dashboards/default.json')
-
+    Execute('sed -i "s/localhost/sandbox.hortonworks.com/g" /opt/lucidworks-hdpsearch/solr/server/solr-webapp/webapp/banana/app/dashboards/default.json')
+    Execute('sed -i "s/localhost/sandbox.hortonworks.com/g" /opt/lucidworks-hdpsearch/solr/server/solr-webapp/webapp/kiwi/app/dashboards/default.json')
+    
     Execute('echo Add repo for maven')
     Execute('curl -o /etc/yum.repos.d/epel-apache-maven.repo https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo')
     Execute('echo Install maven')
